@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "outDir": "./out",
+        "rootDir": "./src",
+        "pretty": true,
+        "removeComments": true,
+        "watch": true
+    },
+    "compileOnSave": true,
+}
