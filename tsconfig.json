@@ -5,7 +5,8 @@
         "rootDir": "./src",
         "pretty": true,
         "removeComments": true,
-        "watch": true
+        "watch": true,
+        "importsNotUsedAsValues": "remove"
     },
     "compileOnSave": true,
 }
