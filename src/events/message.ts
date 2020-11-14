@@ -16,7 +16,7 @@ export function on_fire(client: Client, message: Message): void {
  * An array containing the information relevant
  * to this event.
  * 
- * @since
+ * @since 1.0.0
  */
 export const info: IEventInfo = {
     trigger_name: "message",
