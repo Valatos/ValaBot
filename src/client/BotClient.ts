@@ -1,6 +1,7 @@
 import * as discord from "discord.js";
+import { readdirSync } from "fs";
 
-export class BotClient {
+export default class BotClient {
     private token: string;
     private client: discord.Client;
 
@@ -24,14 +25,36 @@ export class BotClient {
     }
 
     /**
+     * Loads all the events, and registers them to the bot.
+     * This way they will be called once the event is fired.
+     * 
+     * @since 1.0.0
+     */
+    private load_events(): void {
+        const event_files = readdirSync(`${__dirname}/../events/`);
+
+        for (const file of event_files) {
+            const event = require(`${__dirname}/../events/${file}`);
+            
+            if (event.info.enabled) {
+                this.client.on(event.info.trigger_name, (...params) => {
+                    event.on_fire(this.client, ...params);
+                });
+
+                console.log(`[ValaBot]: Loaded event '${file.split(".")[0]}' trigged by event '${event.info.trigger_name}'`);
+            }
+        }
+    }
+
+    /**
      * Starts the bot, using the token
      * provided when creating this bot instance.
      * 
      * @since 1.0.0
      */
     public run(): void {
-        this.client.login(this.token);
+        this.load_events();
 
-        while (true) {}
+        this.client.login(this.token);
     }
 }

@@ -1,5 +1,5 @@
 import { config as load_env_variables } from "dotenv";
-import { BotClient } from "./client/BotClient";
+import BotClient from "./client/BotClient";
 
 // Load all environment variables from the .env file.
 // If a variable already exists, it skips it.
