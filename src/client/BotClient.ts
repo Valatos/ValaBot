@@ -13,15 +13,7 @@ export default class BotClient {
      * @since 1.0.0
      */
     constructor(token: string) {
-        /**
-         * @type string
-         * @private
-         */
         this.token = token;
-
-        /**
-         * @private
-         */
         this.client = new discord.Client();
     }
 
