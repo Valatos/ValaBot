@@ -10,7 +10,7 @@ import { IEventInfo } from "../interfaces/events";
  * @since 1.0.0
  */
 export function on_fire(client: Client, message: Message): void {
-    if (!message.guild.available) return;
+    if (message.guild && !message.guild.available) return;
     if (!message.content.startsWith(process.env.PREFIX)) return;
 
     // Parse the message for the command name.

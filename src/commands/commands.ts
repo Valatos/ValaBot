@@ -49,7 +49,7 @@ export function refresh_cache(): any[] {
  */
 export function can_run_command(command_info: ICommandInfo, executor: GuildMember, channel: Channel): [ boolean, string ] {
     if (!command_info.allow_in_dm && channel.type == "dm") {
-        return [ false, "You cannot use this command in Direct Messages (DMs)" ];
+        return [ false, "You cannot use this command in Direct Messages (DMs)." ];
     }
 
     let has_permissions = false;
@@ -58,7 +58,7 @@ export function can_run_command(command_info: ICommandInfo, executor: GuildMembe
         has_permissions = true;
     }
 
-    if (command_info.locked_to & CommandPermissions.ServerAdminOnly && executor.hasPermission(null, {
+    if (executor && command_info.locked_to & CommandPermissions.ServerAdminOnly && executor.hasPermission(null, {
         checkAdmin: true,
         checkOwner: true
     })) {
