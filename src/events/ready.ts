@@ -1,5 +1,5 @@
-import { IEventInfo } from "../interfaces/events";
 import { Client } from "discord.js";
+import { IEventInfo } from "../interfaces/events";
 
 /**
  * The function that will be called once the event

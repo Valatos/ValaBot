@@ -1,5 +1,6 @@
 import * as discord from "discord.js";
 import { readdirSync } from "fs";
+import { refresh_cache as refresh_commands_cache } from "../commands/commands";
 
 export default class BotClient {
     private token: string;
@@ -54,6 +55,7 @@ export default class BotClient {
      */
     public run(): void {
         this.load_events();
+        refresh_commands_cache();
 
         this.client.login(this.token);
     }
