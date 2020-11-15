@@ -6,7 +6,7 @@
         "pretty": true,
         "removeComments": true,
         "watch": true,
-        "importsNotUsedAsValues": "remove"
+        "importsNotUsedAsValues": "remove",
     },
     "compileOnSave": true,
 }
